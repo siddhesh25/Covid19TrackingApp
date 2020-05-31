@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+    <!-- Here you put the rest of your current view-->
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/CoronaTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="COVID-19 Tracker"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="50dp"
+            android:textAlignment="center"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/COVIDdesc"
+            android:text="Welcome to the COVID-19 Pandemic Tracker App \n It is updated once every day."
+            android:layout_below="@+id/CoronaTitle"
+            android:layout_marginTop="75dp"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:textSize="30dp"
+            android:gravity="center_horizontal" />
+
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/COVIDdesc"
+            android:layout_marginTop="75dp"
+            app:srcCompat="@drawable/corona" />
+
+        <Button
+            android:layout_width="125dp"
+            android:layout_height="50dp"
+            android:text="Statistics"
+            android:id="@+id/btnStat"
+            android:layout_below="@+id/imageView2"
+            android:layout_marginTop="75dp"
+            android:layout_marginLeft="90dp"/>
+        <Button
+            android:layout_width="125dp"
+            android:layout_height="50dp"
+            android:text="Show on Map"
+            android:id="@+id/btnMap"
+            android:layout_toRightOf="@+id/btnStat"
+            android:layout_below="@+id/imageView2"
+            android:layout_marginTop="75dp"
+            android:layout_centerHorizontal="true"/>
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_navigation"/>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bottom_navigation"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/bottom_navigation"
+            android:background="?android:attr/windowBackground"
+            />
+
+    </RelativeLayout>
+</ScrollView>

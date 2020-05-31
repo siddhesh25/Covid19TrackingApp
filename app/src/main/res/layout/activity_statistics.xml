@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    android:overScrollMode="always"
+    android:scrollbarStyle="outsideInset"
+    android:verticalScrollbarPosition="right"
+    android:visibility="visible"
+    android:textColor="@android:color/white"
+    tools:visibility="visible">
+    <!-- Here you put the rest of your current view-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient"
+        android:textColor="@android:color/white"
+        tools:context=".StatisticsActivity"
+        >
+
+        <TextView
+            android:id="@+id/CoronaTitle2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="COVID-19 Tracker"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#00D309"
+            android:textSize="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relativelayoutinner"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#00D309"
+            android:layout_below="@+id/CoronaTitle2">
+            <TextView
+                android:id="@+id/tv_totConfirmedCasestitle"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#00D309"
+                android:layout_marginLeft="15dp"
+                android:text="TOTAL CONFIRMED CASES"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_totConfirmedCases"
+                android:layout_below="@+id/tv_totConfirmedCasestitle"
+                android:textColor="#FFFFFF"
+                android:layout_marginLeft="15dp"
+                android:textColorHighlight="#00D309"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+                android:textSize="25dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_totalDeathstitle"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#00D309"
+                android:layout_toRightOf="@+id/tv_totConfirmedCasestitle"
+                android:gravity="center_horizontal"
+                android:text="TOTAL DEATHS"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_totalDeaths"
+                android:layout_below="@+id/tv_totConfirmedCasestitle"
+                android:layout_toRightOf="@+id/tv_totConfirmedCasestitle"
+                android:gravity="center_horizontal"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#00D309"
+                android:layout_marginLeft="25dp"
+                android:textSize="25dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_totalRecoveredtitle"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#00D309"
+                android:layout_toRightOf="@+id/tv_totalDeathstitle"
+                android:gravity="center_horizontal"
+                android:text="TOTAL RECOVERED"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_totalRecovered"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#00D309"
+                android:layout_below="@+id/tv_totConfirmedCasestitle"
+                android:layout_toRightOf="@+id/tv_totalDeathstitle"
+                android:gravity="center_horizontal"
+                android:layout_marginLeft="15dp"
+                android:textSize="25dp"
+                />
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="-153dp"
+                android:background="?android:attr/windowBackground"
+
+                app:menu="@menu/bottom_navigation" />
+
+            <RadioGroup
+                android:id="@+id/radiogrp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_totalRecovered"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:tooltipText="Sort By">
+
+                <RadioButton
+                    android:id="@+id/radioAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="All Data"
+                    android:checked="true" />
+
+                <RadioButton
+                    android:id="@+id/radioCountry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_toRightOf="@+id/radioAll"
+                    android:text="Country" />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btnFilter"
+                android:layout_width="wrap_content"
+                android:padding="10dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_totalRecovered"
+                android:layout_toRightOf="@+id/radiogrp"
+                android:text="Filter" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listOfData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_above="@+id/bottom_navigation"
+                android:layout_below="@+id/btnFilter" />
+        </RelativeLayout>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="invisible"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="invisible"/>
+
+
+    </RelativeLayout>
+
+</ScrollView>
